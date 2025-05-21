@@ -1,11 +1,12 @@
-FROM oven/bun
+FROM oven/bun:1
 
 WORKDIR /app
 
-COPY . .
+COPY package.json bun.lockb ./
 
 RUN bun install
+COPY . .
 
 EXPOSE 3001
 
-CMD ["bun", "main.js, app.module.js"]
+CMD ["bun", "main.js"]
