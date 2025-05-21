@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 3001
 
-CMD ["bun", "main.js"]
+CMD ["bun", "main.ts"]
