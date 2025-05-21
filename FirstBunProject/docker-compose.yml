@@ -1,17 +1,42 @@
-version: '3.8'
+version: "3.8"
 services:
   backend:
-    build:
-      context: ./backend
+    build: ./backend
     ports:
-      - '3001:3001'
-    env_file:
-      - .env.backend    # your backend-specific env
+      - "3001:3001"
+    volumes:
+      - ./backend:/app
+    networks:
+      - appnet
+    environment:
+      - NODE_ENV=production
+
   frontend:
     build:
       context: ./frontend
     ports:
-      - '3000:3000'
-    env_file:
-      - .env.development  # your frontend dev env
-  # …other services…
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+    networks:
+      - appnet
+
+  neo4j:
+    image: neo4j:latest
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      NEO4J_AUTH: neo4j/test
+    networks:
+      - appnet
+
+  mindsdb:
+    image: mindsdb/mindsdb
+    ports:
+      - "47334:47334"
+    networks:
+      - appnet
+
+networks:
+  appnet:
