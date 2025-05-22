@@ -1,5 +1,5 @@
 // src/api.js
-const API_BASE = import.meta.env.VITE_API_BASE_URL;
+const API_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 export async function fetchNotes() {
   const res = await fetch(`${API_BASE}/notes`);
