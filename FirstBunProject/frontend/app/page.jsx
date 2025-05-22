@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import reactLogo from '../public/react.svg'
 import {fetchNotes} from '../src/api';
-import '../globals.css'
+import '../app/globals.css'
 
 function App() {
   const [notes, setNotes,] = useState([])
