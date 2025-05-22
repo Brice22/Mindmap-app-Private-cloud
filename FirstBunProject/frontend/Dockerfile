@@ -8,8 +8,8 @@ RUN bun install
 
 COPY frontend/ ./
 
-RUN bun run build
+RUN bunx next build
 
 EXPOSE 3000
 
-CMD ["bun", "run", "start"]
+CMD ["bunx", "run", "start"]
