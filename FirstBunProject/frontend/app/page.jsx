@@ -1,9 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
+import reactLogo from '../public/react.svg'
 import {fetchNotes} from '../src/api';
-import './globals.css'
+import '../globals.css'
 
 function App() {
   const [notes, setNotes,] = useState([])
